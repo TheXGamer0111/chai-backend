@@ -335,7 +335,7 @@ const getUserChannelDetails = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Username is missing");
     }
 
-    const channel = awaitUser.aggregate([
+    const channel = await User.aggregate([
         {
             $match: {
                 username: username?.toLowerCase()
